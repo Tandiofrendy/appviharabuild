@@ -172,11 +172,11 @@ class BookdiksaController extends Controller
             $isikode_vihara = $kode_vhr->kode_vihara;
 
             $result = Vihara::join('pendiksaan', function($joins) use ($isikode_vihara,$kode_diksa) {
-                $joins->on('Vihara.kode_vihara','=','pendiksaan.kode_vihara')
+                $joins->on('vihara.kode_vihara','=','pendiksaan.kode_vihara')
                 ->where('pendiksaan.kode_vihara','=',$isikode_vihara)
                 ->where('pendiksaan.kode_diksa','=',$kode_diksa);
             })
-            ->select('pendiksaan.kode_diksa','pendiksaan.created_at','pendiksaan.tanggal_diksa','Vihara.nama_vihara')
+            ->select('pendiksaan.kode_diksa','pendiksaan.created_at','pendiksaan.tanggal_diksa','vihara.nama_vihara')
             ->get();
             return ApiFormat::createApi(200,"success",$result);
         }
