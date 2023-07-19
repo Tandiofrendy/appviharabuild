@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kartudiksa;
-use App\Models\Reservasidiksa;
+use App\Models\reservasidiksa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\ApiFormat;

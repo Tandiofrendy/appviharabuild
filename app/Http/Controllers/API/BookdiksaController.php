@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Helpers\ApiFormat;
 use App\Models\Bookingdiksa;
 use App\Models\Vihara;
-use App\Models\Reservasidiksa;
+use App\Models\reservasidiksa;
 use App\Models\Kartudiksa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -190,7 +190,7 @@ class BookdiksaController extends Controller
             return ApiFormat::createApi(422,"error",$validator->errors());
         }else{
             $kode_diksa= $request->all();
-            $data = Reservasidiksa::join('pendiksaan', function($join) use ($kode_diksa) {
+            $data = reservasidiksa::join('pendiksaan', function($join) use ($kode_diksa) {
                   
                 $join->on('detail_pendiksaan.kode_diksa','=','pendiksaan.kode_diksa')
                     ->where('pendiksaan.kode_diksa', '=', $kode_diksa);

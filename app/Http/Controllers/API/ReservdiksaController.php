@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\ApiFormat;
-use App\Models\Reservasidiksa;
+use App\Models\reservasidiksa;
 use App\Models\Kartudiksa;
 use Illuminate\Support\Facades\DB;
 
@@ -49,7 +49,7 @@ class ReservdiksaController extends Controller
             return ApiFormat::createApi(422, "error", $errors);
         }else{
             foreach ($validData as $data) {
-                Reservasidiksa::create($data);
+                reservasidiksa::create($data);
                
             }
             return ApiFormat::createApi(200,"Success" );
@@ -72,7 +72,7 @@ class ReservdiksaController extends Controller
         //     //     'tgl_lahir' => $request->tgllpdf,
         //     //     'Jenis_kel' => $request->jeniskelpdf
         //     // ];
-        //     // Reservasidiksa::create($isireservasi);
+        //     // reservasidiksa::create($isireservasi);
         //     // return ApiFormat::createApi(200,"Success",$isireservasi);
         //     return ApiFormat::createApi(200,"Success",$data);
         // }
