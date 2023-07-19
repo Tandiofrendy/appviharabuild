@@ -24,7 +24,7 @@
               New Admin
             </h2>
           </div>
-          <div class="flex justify-center space-x-2">npm run
+          <div class="flex justify-center space-x-2">
             <button
               class="btn min-w-[7rem] bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90"
               id="save"
