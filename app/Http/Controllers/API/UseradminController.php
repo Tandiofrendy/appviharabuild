@@ -20,8 +20,8 @@ class UseradminController extends Controller
     public function views()
     {
         $data =  DB::table('Users')
-                ->leftJoin('roleadmin', 'Users.email', '=', 'roleadmin.email')
-                ->select('Users.id','Users.name', 'Users.email', DB::raw("IFNULL(roleadmin.role, 'User') AS role"))
+                ->leftJoin('roleadmin', 'users.email', '=', 'roleadmin.email')
+                ->select('users.id','users.name', 'users.email', DB::raw("IFNULL(roleadmin.role, 'User') AS role"))
                 ->paginate(10);
         return ApiFormat::createApi(200,"Success",$data);
 
