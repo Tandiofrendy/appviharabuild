@@ -1,19 +1,19 @@
 <x-app-layout title="Form Layout v4" is-header-blur="true">
-    <main class="main-content w-full px-[var(--margin-x)] pb-8" x-data="pages.userdetsetting.userdetsettings">
+    <main class="main-content w-full px-[var(--margin-x)] pb-8"  x-data="pages.userdetsetting.userdetsettings">
         <div
           class="flex flex-col items-center justify-between space-y-4 py-5 sm:flex-row sm:space-y-0 lg:py-6"
         >
-          <div class="flex items-center  space-x-1">
-          <i class='fas fa-user text-xl'></i>
-            <h2
-              class="text-xl ml-1.5 font-medium text-slate-700 line-clamp-1 dark:text-navy-50"
-            >
-              Data User Detail
-            </h2>
-           
 
+          <div class="flex items-center  space-x-1">
+            <i class='fas fa-user text-xl'></i>
+              <h2
+                class="text-xl ml-1.5 font-medium text-slate-700 line-clamp-1 dark:text-navy-50"
+              >
+                Data User Detail
+              </h2>
           </div>
           <button id="exportuser" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Export Excel</button>
+
         </div>
         <div class="grid grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
           <div class="col-span-12">
