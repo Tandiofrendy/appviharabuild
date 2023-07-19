@@ -19,7 +19,7 @@ class UseradminController extends Controller
      */
     public function views()
     {
-        $data =  DB::table('Users')
+        $data =  DB::table('users')
                 ->leftJoin('roleadmin', 'users.email', '=', 'roleadmin.email')
                 ->select('users.id','users.name', 'users.email', DB::raw("IFNULL(roleadmin.role, 'User') AS role"))
                 ->paginate(10);
