@@ -42,7 +42,7 @@ class KategoriController extends Controller
         public function delete($kodekategori){
             if($kodekategori){
                 
-                DB::table('Kategorikegiatans')->where('kodekategori',$kodekategori)->delete();
+                DB::table('kategorikegiatans')->where('kodekategori',$kodekategori)->delete();
                 return ApiFormat::createApi(200,'Success','Data Berhasil dihapus');
             }else{
                 return ApiFormat::createApi(400, "error");
@@ -50,7 +50,7 @@ class KategoriController extends Controller
         }
 
         public function edit($kodekategori){
-            $data = DB::table('Kategorikegiatans')->where('kodekategori',$kodekategori)->get() ;
+            $data = DB::table('kategorikegiatans')->where('kodekategori',$kodekategori)->get() ;
             if($data){
                 return ApiFormat::createApi(200,"success",$data);
             }else{
