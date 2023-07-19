@@ -20,7 +20,7 @@ class PagesController extends Controller
 
         if($roleadmin != null){
             $this->authorize('admin',$roleadmin);
-            return view('pages/dashboards-Pandita');
+            return view('pages/dashboards-pandita');
         }else{
             abort(403);
         }
