@@ -177,7 +177,7 @@ export function divisiconf(){
             },
             autoformatinput: function(inputdevisi){
              
-                var hapusinput =  inputdevisi.replace(/[^A-Z0-9]/g, '');
+                var hapusinput =  inputdevisi.replace(/[^A-Z0-9]/,'');
                 var prefix = hapusinput.slice(0,2).toUpperCase();
                 var number = hapusinput.slice(2);
 
