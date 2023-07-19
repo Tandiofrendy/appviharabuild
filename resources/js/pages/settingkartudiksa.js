@@ -293,8 +293,8 @@ export function settingkartu(){
 
             var cektext = $("#savekartu").text();
             if(cektext == "Save"){
-              func.savekartu(datakirims);
-              //console.log(datakirims);
+              //func.savekartu(datakirims);
+              console.log(datakirims);
          
             }else{
               var khususnama = $('#namaumt').val();
