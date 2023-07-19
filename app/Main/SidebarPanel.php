@@ -264,10 +264,6 @@ class SidebarPanel
                             'title' => 'Forms User Setting',
                             'route_name' => 'forms/Usersetting'
                         ],
-                        'forms_scansumbangan'=> [
-                            'title' => 'Forms Scan Sumbangan',
-                            'route_name' => 'forms/Sumbanganscan'
-                        ],
                         'forms_daftar_diksa'=> [
                             'title' => 'Forms Daftar Diksa',
                             'route_name' => 'forms/Daftardiksa'
@@ -292,8 +288,6 @@ class SidebarPanel
                                     'title' => 'Cek Kegiatan',
                                     'route_name' => 'layouts/Lihatjadwal'
                                 ]
-                                
-                                
                     ]
                 ]
                 ];
@@ -302,11 +296,6 @@ class SidebarPanel
                 'title' => 'Layouts',
                 'items' => [
                     [
-    
-                                'layouts_onboarding_1' => [
-                                    'title' => 'Onboarding 1',
-                                    'route_name' => 'layouts/onboarding'
-                                ],
                                 'layouts_jadwalkegiatan' => [
                                     'title' => 'Cek Kegiatan',
                                     'route_name' => 'layouts/Lihatjadwal'
