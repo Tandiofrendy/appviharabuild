@@ -285,6 +285,7 @@ export function settingkartu(){
             
             var datakirims = {
                 id : $("#iddiksa").val(),
+                kode_diksa: $("#kodediksa").val(),
                 pandita :  $('#namapandita').val(),
                 pengajak : $('#namapengajak').val(),
                 penanggung : $('#namapenanggung').val()
@@ -293,6 +294,7 @@ export function settingkartu(){
             var cektext = $("#savekartu").text();
             if(cektext == "Save"){
               func.savekartu(datakirims);
+              //console.log(datakirims);
          
             }else{
               var khususnama = $('#namaumt').val();
