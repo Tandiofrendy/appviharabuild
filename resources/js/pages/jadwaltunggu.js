@@ -285,8 +285,8 @@ export function jadwaladmit(){
                 }
             })
         },
-        updateposting: function(kodepos,dataform,event){
-            event.preventDefault();
+        updateposting: function(dataform){
+           
             $.ajax({
                 url : urls + "/api/Jadwal/Upposting/" ,
                 type: "POST",
@@ -297,7 +297,7 @@ export function jadwaladmit(){
                     func.viewposting();
                     func.viewjw();
                 }
-            })
+            });
             // console.log("ini  update" + " " + kodepos )
         },
         viewposting: function(){
