@@ -285,10 +285,10 @@ export function jadwaladmit(){
                 }
             })
         },
-        updateposting: function(dataform){
-           
+        updateposting: function(kodepos,dataform,event){
+            event.preventDefault();
             $.ajax({
-                url : urls + "/api/Jadwal/Upposting/" ,
+                url : urls + "/api/Jadwal/Upposting" ,
                 type: "POST",
                 data: dataform,
                 dataType: "json",
@@ -297,7 +297,7 @@ export function jadwaladmit(){
                     func.viewposting();
                     func.viewjw();
                 }
-            });
+            })
             // console.log("ini  update" + " " + kodepos )
         },
         viewposting: function(){
