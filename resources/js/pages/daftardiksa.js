@@ -166,8 +166,8 @@ export function dafdiksa(){
             dataType:"json",
             success: function(kuota){
               let kuotadiksa = kuota.data ;
-              var remain = 10 - kuotadiksa;
               max = kuotadiksa;
+              console.log(kuotadiksa);  
               if(kuotadiksa === 10){
                 $("#my-modal").removeClass('hidden');
                 $("#btn-hapus-mo").click(function(){
