@@ -366,25 +366,26 @@ export function filterdiksaconfig(){
   
 
 
-    flatpickr("#fromdiksa",{
-        locale : 'id',
-        onChange: function(selectedDates){
-             isifromdiksa = this.formatDate(selectedDates[0],"Y-m-d");
-        }
-    });
-    flatpickr("#todiksa",{
-        locale : 'id',
-        onChange: function(selectedDates){
-             isitodiksa = this.formatDate(selectedDates[0],"Y-m-d");
-              if(isifromdiksa > isitodiksa){
-                func.alerttoast("tanggal akhir tidak boleh kurang dari tanggal awal,Silahkan cek kembali!!","bg-warning");
-              }else{
-                func.searchfilterdiksav2(isifromdiksa,isitodiksa,1);
-              }
-        }
-    });
+   
 
     $(window).on("load",function(){
+        flatpickr("#fromdiksa",{
+            locale : 'id',
+            onChange: function(selectedDates){
+                 isifromdiksa = this.formatDate(selectedDates[0],"Y-m-d");
+            }
+        });
+        flatpickr("#todiksa",{
+            locale : 'id',
+            onChange: function(selectedDates){
+                 isitodiksa = this.formatDate(selectedDates[0],"Y-m-d");
+                  if(isifromdiksa > isitodiksa){
+                    func.alerttoast("tanggal akhir tidak boleh kurang dari tanggal awal,Silahkan cek kembali!!","bg-warning");
+                  }else{
+                    func.searchfilterdiksav2(isifromdiksa,isitodiksa,1);
+                  }
+            }
+        });
         func.loadfilterv2(1);
         $("#cancel").on("click",function(){
             func.loadfilterv2(1);
