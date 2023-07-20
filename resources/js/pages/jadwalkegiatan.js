@@ -203,13 +203,11 @@ export function kegiatanconf(){
             tglb  = tglsls.val();
             wa =1;
             npch = "";
-            console.log("waktu acara check");
           }else{
             tgla = tglsingle.val();
             tglb = tglsingle.val();
             wa=0;
             npch = $("#namapch").val();
-            console.log("waktu acara tidak check");
           }
           var formdata = {
              kode_kegiatan : ids,
@@ -237,7 +235,6 @@ export function kegiatanconf(){
 
           if(cekids == 1){
             func.savetemp(formdata2);
-            func.viewall();
           }else{
             $.ajax({
               type : "POST",
@@ -246,8 +243,6 @@ export function kegiatanconf(){
               dataType : "json",
               success: function(){
                  func.savetemp(formdata2);
-                 func.viewall();
-            
               }
            });
           }
@@ -262,7 +257,7 @@ export function kegiatanconf(){
             success: function(data){
               func.alerttoast(data.data,"bg-success text-white");
               func.resetinput();
-
+              func.viewall();
              
             }
          });
