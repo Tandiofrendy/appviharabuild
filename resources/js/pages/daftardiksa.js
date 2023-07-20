@@ -166,17 +166,20 @@ export function dafdiksa(){
             dataType:"json",
             success: function(kuota){
               let kuotadiksa = kuota.data ;
-              if(kuotadiksa === 10 ){
+              var remain = 10 - kuotadiksa;
+              max = kuotadiksa;
+              if(kuotadiksa === 10){
                 $("#my-modal").removeClass('hidden');
                 $("#btn-hapus-mo").click(function(){
                   $("#my-modal").addClass('hidden');
                   $("#select-vihara").prop('disabled',true);
                   $(".next").prop('disabled',true);
                 });
-
+                console.log("lebih");
               }else{
                 $("#select-vihara").prop('disabled',false);
                 $(".next").prop('disabled',false);
+                console.log("masih ada");
               }
             }
           });
@@ -478,8 +481,7 @@ export function dafdiksa(){
         $("#judulpil1").text("Anak-anak");
         $("#judulpil2").text("Bayi");
           $(".next").click(function(){
-             
-              if(func.validasiinputandaftar() === 1){
+             if(func.validasiinputandaftar() === 1){
               let prev = $(this).closest('fieldset').attr('id');
               let next = $('#'+prev).closest('fieldset').next('fieldset').attr('id');
               $('#'+next).show();
@@ -670,8 +672,9 @@ export function dafdiksa(){
                   }
                 }
               }
+
                
-              });
+          });
           $(".prev").click(function(){
             let current = $(this).closest('fieldset').attr('id');
             let prev =$('#'+current).closest('fieldset').prev('fieldset').attr('id');
@@ -774,7 +777,8 @@ export function dafdiksa(){
             $("#plus"+i).prop('disabled',true);
          }
        
-         setalert("Batas maksimum 10 orang untuk dewasa,anak-anak dan bayi")
+         setalert("Batas maksimum 10 orang untuk dewasa,anak-anak dan bayi");
+         func.alerttoast("batas harian telah habis untuk tanggal ini ","bg-info");
         
        }else{
           $("#plus0").prop('disabled',false);
