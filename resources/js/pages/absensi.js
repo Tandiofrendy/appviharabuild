@@ -2,7 +2,7 @@ import {Html5QrcodeScanner} from "html5-qrcode"
 import Toastify from "toastify-js";
 export function absensijadwal() {
 
-    $(function(){
+
       
       var urls = window.location.origin;
       let func = {
@@ -85,7 +85,7 @@ export function absensijadwal() {
                                     </div>
                                 </div>
                         `)
-                      })
+                      });
                   }
               })
         }
@@ -130,6 +130,6 @@ export function absensijadwal() {
         config,
         /* verbose= */ false);
       html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-    })
+
    
 }

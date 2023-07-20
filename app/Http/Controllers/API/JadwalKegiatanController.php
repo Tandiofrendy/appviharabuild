@@ -80,6 +80,7 @@ class JadwalKegiatanController extends Controller
         $data = Post_jadwalkegiatan::join('vihara','post_jadwalkegiatan.kode_vihara','=','vihara.kode_vihara') 
                                     ->select('post_jadwalkegiatan.*','vihara.nama_vihara')
                                     ->get();
+
         if($data){
             return ApiFormat::createApi(200,"success",$data);
         }else{

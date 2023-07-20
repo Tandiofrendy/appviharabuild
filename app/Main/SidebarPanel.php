@@ -267,6 +267,10 @@ class SidebarPanel
                         'forms_daftar_diksa'=> [
                             'title' => 'Forms Daftar Diksa',
                             'route_name' => 'forms/Daftardiksa'
+                        ],
+                        'forms_absensi'=> [
+                            'title' => 'Forms Absensi',
+                            'route_name' => 'forms/Absensi'
                         ]
                     ]
                 ]

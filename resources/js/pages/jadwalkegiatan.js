@@ -7,42 +7,7 @@ export function kegiatanconf(){
   $('#judul').show();
 
 
-  flatpickr(".tglrr", {
-    mode: 'range',
-    onChange: function (selectedDates, datestr) {
-      var tglmulai = $("#tglmulai");
-      var tglsls   = $("#tglselesai");
-      const dateArr = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
-      const dater = datestr.split("to");
-      const day = dater[0].split("-");
-      var day1 = day[2];
-      if(selectedDates.length == 2){
-        const select =this.formatDate( selectedDates[1], "j F Y");
-        if(dateArr[0] == dateArr[1]){
-          tglmulai.val(dater[0]);
-          tglsls.val(dater[0]);
-        $("#tglrange").val( this.formatDate(new Date(dateArr[0]),"j F Y"));
-        }else{
-          tglmulai.val(dater[0]);
-          tglsls.val(dater[1]);
-        $("#tglrange").val(day1 + ' - ' + select );
-        }
-      } 
-    }
-  });
 
-  flatpickr("#tglsingle", {
-    allowInput: true,
-    altInput: true,
-    mode: 'single',
-    onChange: function (selectedDates ,datestr) {
-      const dateArr = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
-      const dater = datestr.split("to");
-      var tglsingle = $("#tglsl");
-      tglsingle.val(dater[0]);
-      $("#tglsingle").val(this.formatDate(selectedDates[0],"j F Y"));
-    }
-  });
 
 
   $('.next').click(function(){
@@ -238,11 +203,13 @@ export function kegiatanconf(){
             tglb  = tglsls.val();
             wa =1;
             npch = "";
+            console.log("waktu acara check");
           }else{
             tgla = tglsingle.val();
             tglb = tglsingle.val();
             wa=0;
             npch = $("#namapch").val();
+            console.log("waktu acara tidak check");
           }
           var formdata = {
              kode_kegiatan : ids,
@@ -282,7 +249,7 @@ export function kegiatanconf(){
                  func.viewall();
             
               }
-           })
+           });
           }
           
       },
@@ -452,6 +419,43 @@ export function kegiatanconf(){
     func.cekcheck();
   });
   $(window).on("load",function(){
+    flatpickr(".tglrr", {
+      mode: 'range',
+      onChange: function (selectedDates, datestr) {
+        var tglmulai = $("#tglmulai");
+        var tglsls   = $("#tglselesai");
+        const dateArr = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
+        const dater = datestr.split("to");
+        const day = dater[0].split("-");
+        var day1 = day[2];
+        if(selectedDates.length == 2){
+          const select =this.formatDate( selectedDates[1], "j F Y");
+          if(dateArr[0] == dateArr[1]){
+            tglmulai.val(dater[0]);
+            tglsls.val(dater[0]);
+          $("#tglrange").val( this.formatDate(new Date(dateArr[0]),"j F Y"));
+          }else{
+            tglmulai.val(dater[0]);
+            tglsls.val(dater[1]);
+          $("#tglrange").val(day1 + ' - ' + select );
+          }
+        } 
+      }
+    });
+  
+    flatpickr("#tglsingle", {
+      allowInput: true,
+      altInput: true,
+      mode: 'single',
+      onChange: function (selectedDates ,datestr) {
+        const dateArr = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
+        const dater = datestr.split("to");
+        var tglsingle = $("#tglsl");
+        tglsingle.val(dater[0]);
+        $("#tglsingle").val(this.formatDate(selectedDates[0],"j F Y"));
+  
+      }
+    });
       var d  = new Date();
       var month = d.getMonth()+1;
       var day = d.getDate();

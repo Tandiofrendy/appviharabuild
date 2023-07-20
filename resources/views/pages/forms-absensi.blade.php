@@ -9,42 +9,34 @@
                 Klik Untuk Scan
                 </button>
             </div>
-            <div id="hasilpresensi">
-            <div class="card mt-20 w-full max-w-xl p-4 sm:p-5">
+                <div id="hasilpresensi"> 
+                    <div class="card mt-20 w-full max-w-2xl  p-4 sm:p-5">
                       <div class="flex items-center place-content-center  py-4 ">
   
-                          <div class="flex-row justify-center  text-center">
-                              <img
-                              src="{{asset('images/success.png')}}"
-                              class="w-28 m-auto"
-                              />
-                              <p class="text-md font-extrabold " id="tpresensi">
-                                
-                              </p>
-                          </div>
-  
-                          
+                            <div class="flex-row justify-center  text-center">
+                                <img
+                                src="{{asset('images/success.png')}}"
+                                class="w-28 m-auto"
+                                />
+                                <p class="text-md font-extrabold " id="tpresensi">
+                                    
+                                </p>
+                            </div>
                       </div>
                       <p class="text-xl font-medium ">
                                       INFORMASI CHECK-IN
                       </p>
-                      <div class=" justify-between sm:flex flex-row" id="datapres">
-                              
-                      </div>
-  
+                    <div class="justify-between sm:flex flex-row" id="datapres"></div>
                   </div>
-            </div>
+                </div>
             <div class="mt-10 ">
                  <div id="reader" class="flex flex-col items-center justify-center w-72 h-72 " ></div>
             </div>
-            <div class=""
+            <div>
                 @if(Auth::check()) 
                 <input type="hidden" id="email"  value="{{Auth::user()->email}}">
                 @endif
             </div>
-            
-            
-            
         </div>
         
     </main>

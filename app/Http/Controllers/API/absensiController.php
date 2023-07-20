@@ -14,12 +14,14 @@ class absensiController extends Controller
 {
     public function cekkodeqr(Request $request){
         $kodeqr = $request->kodeqr;
+        $eml = $request->email;
         if(Post_jadwalkegiatan::where('kodeqr',$kodeqr)->exists()){
             $kode_postings = Post_jadwalkegiatan::where('kodeqr',$kodeqr)->select('kode_posting')->first();
             if(Absensi::where('email',$request->email)->where('kode_posting','like',$kode_postings->kode_posting)->exists()){
-                $qpresensi = Absensi::join('post_jadwalkegiatan','Absensi.kode_posting','=','post_jadwalkegiatan.kode_posting')
-                            ->join('userinformations','Absensi.email','=','userinformations.email')
-                            ->select('Absensi.id','Absensi.email','Absensi.waktu_absensi','post_jadwalkegiatan.judul_kegiatan','userinformations.nama_indonesia')
+                $qpresensi = Absensi::join('post_jadwalkegiatan','absensi.kode_posting','=','post_jadwalkegiatan.kode_posting')
+                            ->join('userinformations','absensi.email','=','userinformations.email')
+                            ->where('absensi.email',$eml)
+                            ->select('absensi.id','absensi.email','absensi.waktu_absensi','post_jadwalkegiatan.judul_kegiatan','userinformations.nama_indonesia')
                             ->get();
                 return ApiFormat::createApi(200,'error',$qpresensi);
             }else{
@@ -29,9 +31,9 @@ class absensiController extends Controller
                     'kode_posting' =>$kode_postings->kode_posting
                 ];
                 $store =  Absensi::insert(($data));
-                $qpresensi = Absensi::join('post_jadwalkegiatan','Absensi.kode_posting','=','post_jadwalkegiatan.kode_posting')
-                            ->join('userinformations','Absensi.email','=','userinformations.email')
-                            ->select('Absensi.id','Absensi.email','Absensi.waktu_absensi','post_jadwalkegiatan.judul_kegiatan','userinformations.nama_indonesia')
+                $qpresensi = Absensi::join('post_jadwalkegiatan','absensi.kode_posting','=','post_jadwalkegiatan.kode_posting')
+                            ->join('userinformations','absensi.email','=','userinformations.email')
+                            ->select('absensi.id','absensi.email','absensi.waktu_absensi','post_jadwalkegiatan.judul_kegiatan','userinformations.nama_indonesia')
                             ->get();
                 return ApiFormat::createApi(200,'success',$qpresensi);
             };
