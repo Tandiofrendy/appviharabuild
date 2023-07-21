@@ -101,35 +101,35 @@ export function absensijadwal() {
             $("#btn-scan").addClass('hidden');
             $("#reader").removeClass('hidden');
         })
+        function onScanSuccess(decodedText, decodedResult) {
+          // handle the scanned code as you like, for example:
+  
+          html5QrcodeScanner.clear().then(_ => {
+            func.absen(decodedText);
+            
+          }).catch((err) => {
+            // Stop failed, handle it.
+          });
+          
+        }
         
+        function onScanFailure(error) {
+      
+  
+        }
+        
+        let config = {  fps: 10, qrbox: 250  , aspectRatio: 1.777778	}
+        
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+          "reader",
+          config,
+          /* verbose= */ false);
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
       });
       $(document).on("click","#absen",function(){
           func.absen();
       });
-      function onScanSuccess(decodedText, decodedResult) {
-        // handle the scanned code as you like, for example:
-
-        html5QrcodeScanner.clear().then(_ => {
-          func.absen(decodedText);
-          
-        }).catch((err) => {
-          // Stop failed, handle it.
-        });
-        
-      }
       
-      function onScanFailure(error) {
-    
-
-      }
-      
-      let config = {  fps: 10, qrbox: 250  , aspectRatio: 1.777778	}
-      
-      let html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader",
-        config,
-        /* verbose= */ false);
-      html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 
    
 }
