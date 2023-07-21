@@ -46,6 +46,7 @@ export function absensijadwal() {
                       $("#tpresensi").text("SUDAH MELAKUKAN PRESENSI");
                     }
                       let dtpresensi = datas.data
+                      console.log(dtpresensi);
                       $.each(dtpresensi,function(i,data){
                         $("#datapres").append(`
                         <div class=" pt-4 sm:p-5 ">

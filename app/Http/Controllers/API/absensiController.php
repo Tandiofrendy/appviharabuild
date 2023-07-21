@@ -20,7 +20,8 @@ class absensiController extends Controller
             if(Absensi::where('email',$request->email)->where('kode_posting','like',$kode_postings->kode_posting)->exists()){
                 $qpresensi = Absensi::join('post_jadwalkegiatan','absensi.kode_posting','=','post_jadwalkegiatan.kode_posting')
                             ->join('userinformations','absensi.email','=','userinformations.email')
-                            ->where('absensi.email',$eml)
+                            ->where('absensi.email','=',$eml)
+                            ->where('absensi.kode_posting','=',$kode_postings->kode_posting)
                             ->select('absensi.id','absensi.email','absensi.waktu_absensi','post_jadwalkegiatan.judul_kegiatan','userinformations.nama_indonesia')
                             ->get();
                 return ApiFormat::createApi(200,'error',$qpresensi);
@@ -33,7 +34,8 @@ class absensiController extends Controller
                 $store =  Absensi::insert(($data));
                 $qpresensi = Absensi::join('post_jadwalkegiatan','absensi.kode_posting','=','post_jadwalkegiatan.kode_posting')
                             ->join('userinformations','absensi.email','=','userinformations.email')
-                            ->where('absensi.email',$eml)
+                            ->where('absensi.email','=',$eml)
+                            ->where('absensi.kode_posting','=',$kode_postings->kode_posting)
                             ->select('absensi.id','absensi.email','absensi.waktu_absensi','post_jadwalkegiatan.judul_kegiatan','userinformations.nama_indonesia')
                             ->get();
                 return ApiFormat::createApi(200,'success',$qpresensi);
