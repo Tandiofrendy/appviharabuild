@@ -516,7 +516,7 @@ export function cekjadwal(){
                 data : formmdl,
                 dataType : "json",
                 success : function(data){
-                    func.alerttoast(data.data, "bg-success text-black font-bold");
+                    func.alerttoast("Jadwal Berhasil disetujui", "bg-success text-black font-bold");
                 }
             });
         },

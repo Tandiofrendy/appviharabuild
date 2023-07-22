@@ -563,7 +563,6 @@ export function dafdiksa(){
                                     </span>
                                   </span>
                                 </label> 
-
                                 <div class="grid grid-cols-2 gap-4">
                                   <label class="block">
                                     <span>Jenis Kelamin :</span>
@@ -588,13 +587,8 @@ export function dafdiksa(){
                                     <span>Tgl Lahir :</span>
                                     <span class="relative mt-1.5 flex">
                                     <input
-                                      x-input-mask="{
-                                          date: true,
-                                          delimiter: '-',
-                                          datePattern: ['Y', 'm','d']
-                                        }"
-                                      class="form-input `+ judul[j] +`  w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                                      placeholder="19-02-2005"
+                                      class="flattgl form-input `+ judul[j] +`  w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                                      placeholder="2005-02-20"
                                       type="text"
                                       id="tgllahir`+judul[j]+i+`"
                                       name="tgllahir`+judul[j]+i+`"
@@ -611,6 +605,23 @@ export function dafdiksa(){
               
                           </fieldset>                
                     `);
+                    
+                    flatpickr("#tgllahir"+judul[j]+i, {
+                      allowInput: true,
+                      altInput: true,
+                      altFormat: "Y-m-d",
+                      mode: 'single',
+                      dateFormat: "Y-m-d",
+                      onChange: function (selectedDates ,datestr) {
+                        const dateArr = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
+                        // const dater = datestr.split("to");
+                        // var tglsingle = $("#tglsl");
+                        // tglsingle.val(dater[0]);
+                        $("#tgllahir"+judul[j]+i).val(dateArr);
+                        var test =  $("#tgllahir"+judul[j]+i).val();
+                        console.log(test);
+                      }
+                    });
                     $(".simpan"+ judul[j] +i).click(function(){
                       
                       var entitas = judul[j] +i;
