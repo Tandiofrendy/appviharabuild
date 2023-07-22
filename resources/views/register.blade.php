@@ -1,4 +1,4 @@
-<x-base-layout title="Sign Up v1">
+<x-base-layout title="Register">
     <main class="grid w-full grow grid-cols-1 place-items-center"  x-data="pages.register.registers">
         <div class="w-full max-w-[26rem] p-4 sm:px-5">
             <div class="text-center">
